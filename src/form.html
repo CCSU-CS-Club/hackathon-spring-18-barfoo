@@ -22,13 +22,20 @@
 		/////////////////////////
 		//License Number.
 		document.getElementById("licenseNumberID").value = /\d{9}\s/.exec(result.text);
-		document.getElementById("fnameID").value = /\d{2,11}/.exec(result.text);
-		document.getElementById("lnameID").value = /\d{2,15}/.exec(result.text);
+		document.getElementById("fnameID").value = /\d\w{2,11}/.exec(result.text);
+		document.getElementById("lnameID").value = /\d\w{2,15}/.exec(result.text);
 		document.getElementById("addressID").value = /8\d{1,5}\s\w\w/.exec(result.text);
 		document.getElementById("dobID").value = /DOB:\s\d\d-\d\d-\d\d\d\d/.exec(result.text);
 	})
 	
   }
+  function validate()
+  {
+	var date =/^([0-9]{2})\/([0-9]{2})\/([1-2][0-9]{3})$/;
+	if(date.test(document.getElementById("dobID").value))
+  {}
+  }
+
 }
 
 </script>
@@ -63,7 +70,7 @@
   <br>
   <div class="form-group">
     <label for="exampleDOB">Date of Birth</label>
-    <input type="text" class="form-control" id="dobID" aria-describedby="dobhelp" placeholder="DOB">
+    <input type="text" class="form-control" id="dobID" aria-describedby="dobhelp" placeholder="DOB" value="mm-dd-yyyy">
   </div>
   <button type="submit" class="btn btn-primary" onclick="192.168.1.3:3000/insert">Submit</button>
   </form>
