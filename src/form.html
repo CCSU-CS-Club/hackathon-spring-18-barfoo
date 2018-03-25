@@ -22,18 +22,24 @@
 		/////////////////////////
 		//License Number.
 		document.getElementById("licenseNumberID").value = /\d{9}\s/.exec(result.text);
-		document.getElementById("fnameID").value = /\d\w{2,11}/.exec(result.text);
-		document.getElementById("lnameID").value = /\d\w{2,15}/.exec(result.text);
-		document.getElementById("addressID").value = /8\d{1,5}\s\w\w/.exec(result.text);
-		document.getElementById("dobID").value = /DOB:\s\d\d-\d\d-\d\d\d\d/.exec(result.text);
+		//First Name
+		document.getElementById("fnameID").value = /\d\w{2,21}/.exec(result.text);
+		//LastName
+		document.getElementById("lnameID").value = /\d\w{2,25}/.exec(result.text);
+		//Address
+		document.getElementById("addressID").value = /\d{1,5}\s\w{10,30}/.exec(result.text);
+		//Date of Birth
+		document.getElementById("dobID").value = /\d\d-\d\d-\d\d\d\d/.exec(result.text);
 	})
 	
   }
   function validate()
   {
-	var date =/^([0-9]{2})\/([0-9]{2})\/([1-2][0-9]{3})$/;
+	var date =/\d\d-\d\d-\d\d\d\d/;
 	if(date.test(document.getElementById("dobID").value))
-  {}
+    {
+		alert("you are qualified for a claim, click ok to continue");
+	}
   }
 
 }
